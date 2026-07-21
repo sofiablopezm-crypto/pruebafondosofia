@@ -17,27 +17,28 @@
             flex-direction: column;
             text-align: center;
 
-            /* --- CÓDIGO DE LA IMAGEN DE FONDO --- */
-            /* Capa oscura semitransparente + tu imagen */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('fondo.jpg'); 
-            background-size: cover;          /* Cubre toda la pantalla */
-            background-position: center;     /* Centra la imagen */
-            background-repeat: no-repeat;    /* No se repite en mosaico */
-            background-attachment: fixed;    /* Efecto fijo al hacer scroll */
-            background-color: #1a1a2e;       /* Color oscuro por si la imagen tarda en cargar */
+            /* Imagen de fondo con overlay suave */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('fondo.jpg'); 
+            background-size: cover;          
+            background-position: center;     
+            background-repeat: no-repeat;    
+            background-attachment: fixed;    
+            background-color: #1a1a2e;       
         }
 
         header {
             padding: 20px;
-            background-color: rgba(236, 211, 223, 0.9); /* Un toque transparente para integrarse con el fondo */
+            background-color: rgba(236, 211, 223, 0.85); /* Ligera transparencia para ver el fondo arriba */
+            backdrop-filter: blur(5px); /* Efecto de cristal esmerilado */
         }
 
+        /* --- AQUÍ SE CONTROLA EL ANCHO DE LAS TARJETAS --- */
         main {
             flex: 1;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+            padding: 30px 20px;
+            max-width: 750px; /* Reducido de 1200px a 750px para que las tarjetas sean más delgadas */
+            margin: 0 auto;  /* Mantiene todo centrado en la pantalla */
+            width: 90%;       /* Para adaptarse bien a pantallas pequeñas y móviles */
             box-sizing: border-box;
         }
 
@@ -47,7 +48,8 @@
             align-items: center;
             padding: 15px 50px;
             border-top: 5px solid palevioletred;
-            background-color: rgba(248, 216, 229, 0.95);
+            background-color: rgba(248, 216, 229, 0.9);
+            backdrop-filter: blur(5px);
         }
 
         @media(max-width: 600px) {
@@ -56,10 +58,14 @@
                 gap: 15px;
                 padding: 20px;
             }
+            main {
+                width: 95%; /* Un poco más de espacio en teléfonos */
+                padding: 15px 10px;
+            }
         }
 
         h1 {
-            color: #fff; /* Color del texto */
+            color: #fff;
             text-shadow: 
                 0 0 5px #fff, 
                 0 0 10px hsl(334, 100%, 57%), 
@@ -76,12 +82,14 @@
             transform: scale(1.2);
         } 
 
+        /* Estilo de los bloques de cada semana */
         .semana {
-            background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con leve transparencia */
+            background-color: rgba(255, 255, 255, 0.88); /* Transparencia suave para dejar pasar el fondo */
+            backdrop-filter: blur(8px); /* Hace que lo que está detrás se vea desenfocado y elegante */
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgb(250, 103, 198);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(250, 103, 198, 0.4);
             border-left: 6px solid palevioletred;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
@@ -89,12 +97,13 @@
 
         .semana:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgb(238, 99, 164);
+            box-shadow: 0 8px 25px rgba(238, 99, 164, 0.6);
+            background-color: rgba(255, 255, 255, 0.95); /* Se vuelve un poco más opaco al pasar el mouse */
         }
 
-        .semana h2 {
+        .semana h2, .semana h3 {
             margin-top: 0;
-            color: #d85c91; /* Ajustado para mejor contraste */
+            color: #c94379;
         }    
     </style>
 </head>
